@@ -3,10 +3,10 @@ from django.db import models
 class Service(models.Model):
     name = models.CharField(verbose_name="service_name", max_length=255)
     price = models.PositiveIntegerField(default=0)
-    description = models.CharField(verbose_name="description")
-    doctor = models.ForeignKey('Doctor', verbose_name="doctor", on_delete=models.CASCADE)
-    img = models.ImageField(verbose_name='Image')
-    time = models.CharField(verbose_name="time", default="24/7")
+    description = models.CharField(verbose_name="description", max_length=255)
+    doctor = models.ManyToManyField('Doctor', verbose_name="doctor", related_name="doctor")
+    img = models.ImageField(verbose_name='Image', blank=True)
+    time = models.CharField(verbose_name="time", default="24/7", max_length=20)
 
     def __str__(self):
         return self.name
@@ -14,8 +14,8 @@ class Service(models.Model):
 class Doctor(models.Model):
     name = models.CharField(verbose_name="name", max_length=255)
     profession = models.CharField(verbose_name="profession", max_length=255)
-    img = models.ImageField(verbose_name="image")
-    service = models.ManyToManyField(Service, verbose_name="service", on_delete=models.CASCADE)
+    img = models.ImageField(verbose_name="image", blank=True)
+    service = models.ManyToManyField(Service, verbose_name="service", related_name="service", blank=True)
 
     def __str__(self):
         return self.name
