@@ -8,11 +8,17 @@ class Service(models.Model):
     img = models.ImageField(verbose_name='Image')
     time = models.CharField(verbose_name="time", default="24/7")
 
+    def __str__(self):
+        return self.name
+
 class Doctor(models.Model):
     name = models.CharField(verbose_name="name", max_length=255)
     profession = models.CharField(verbose_name="profession", max_length=255)
     img = models.ImageField(verbose_name="image")
     service = models.ManyToManyField(Service, verbose_name="service", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 class Appointment(models.Model):
     service = models.ForeignKey(Service, verbose_name="service", on_delete=models.CASCADE)
@@ -23,3 +29,8 @@ class Appointment(models.Model):
     time = models.CharField(verbose_name="time", max_length=255)
     acceptance = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ('-date',)
+
+    def __str__(self):
+        return self.date
