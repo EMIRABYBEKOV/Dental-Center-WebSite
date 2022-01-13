@@ -14,7 +14,6 @@ class DoctorAdmin(admin.ModelAdmin):
     list_display = ('name', 'profession',)
     list_filter = ('profession', 'service',)
     search_fields = ('name', 'profession', 'service',)
-
     ordering = ('profession', 'service',)
 
 @admin.register(Appointment)
@@ -22,6 +21,5 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_display = ('service', 'doctor', 'date', 'time', 'acceptance',)
     list_filter = ('service', 'doctor', 'date', 'time', 'acceptance',)
     search_fields = ('service', 'doctor', 'date', 'time', 'acceptance',)
-
     ordering = ('service', 'doctor', 'date', 'time', 'acceptance',)
 

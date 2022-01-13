@@ -24,7 +24,7 @@ class Appointment(models.Model):
     service = models.ForeignKey(Service, verbose_name="service", on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, verbose_name="doctor", on_delete=models.CASCADE)
     name = models.CharField(verbose_name="name", max_length=255)
-    email = models.EmailField(verbose_name="mail")
+    mail = models.EmailField(verbose_name="mail")
     date = models.CharField(verbose_name="date", max_length=255)
     time = models.CharField(verbose_name="time", max_length=255)
     acceptance = models.BooleanField(default=False)

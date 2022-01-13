@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>DentCare - Dental Clinic Website Template</title>
@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,31 +20,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-    <link href="lib/twentytwenty/twentytwenty.css" rel="stylesheet" />
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'lib/twentytwenty/twentytwenty.css' %}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary m-1" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <div class="spinner-grow text-dark m-1" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <div class="spinner-grow text-secondary m-1" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+<!--    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">-->
+<!--        <div class="spinner-grow text-primary m-1" role="status">-->
+<!--            <span class="sr-only">Loading...</span>-->
+<!--        </div>-->
+<!--        <div class="spinner-grow text-dark m-1" role="status">-->
+<!--            <span class="sr-only">Loading...</span>-->
+<!--        </div>-->
+<!--        <div class="spinner-grow text-secondary m-1" role="status">-->
+<!--            <span class="sr-only">Loading...</span>-->
+<!--        </div>-->
+<!--    </div>-->
     <!-- Spinner End -->
 
 
@@ -266,17 +266,17 @@
                                 <div class="col-12 col-sm-6">
                                     <select class="form-select bg-light border-0" style="height: 55px;">
                                         <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
+                                        {% for i in service %}
+                                            <option value="1">{{ i.name }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <select class="form-select bg-light border-0" style="height: 55px;">
                                         <option selected>Select Doctor</option>
-                                        <option value="1">Doctor 1</option>
-                                        <option value="2">Doctor 2</option>
-                                        <option value="3">Doctor 3</option>
+                                        {% for i in doctor %}
+                                        <option value="1">{{ i.name }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -328,44 +328,48 @@
                         <h1 class="display-5 mb-0">We Offer The Best Quality Dental Services</h1>
                     </div>
                     <div class="row g-5">
+                        {% for i in service2 %}
                         <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.6s">
                             <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-1.jpg" alt="">
+                                <img class="img-fluid" src="{{ i.img.url }}" alt="">
                             </div>
                             <div class="position-relative bg-light rounded-bottom text-center p-4">
-                                <h5 class="m-0">Cosmetic Dentistry</h5>
+                                <h5 class="m-0">{{ i.name }}</h5>
                             </div>
                         </div>
-                        <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.9s">
-                            <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-2.jpg" alt="">
-                            </div>
-                            <div class="position-relative bg-light rounded-bottom text-center p-4">
-                                <h5 class="m-0">Dental Implants</h5>
-                            </div>
-                        </div>
+                        {% endfor %}
+<!--                        <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.9s">-->
+<!--                            <div class="rounded-top overflow-hidden">-->
+<!--                                <img class="img-fluid" src="img/service-2.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="position-relative bg-light rounded-bottom text-center p-4">-->
+<!--                                <h5 class="m-0">Dental Implants</h5>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
             <div class="row g-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="col-lg-7">
                     <div class="row g-5">
+                        {% for i in service3 %}
                         <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.3s">
                             <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-3.jpg" alt="">
+                                <img class="img-fluid" src="{{ i.img.url }}" alt="">
                             </div>
                             <div class="position-relative bg-light rounded-bottom text-center p-4">
-                                <h5 class="m-0">Dental Bridges</h5>
+                                <h5 class="m-0">{{ i.name }}</h5>
                             </div>
                         </div>
-                        <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.6s">
-                            <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-4.jpg" alt="">
-                            </div>
-                            <div class="position-relative bg-light rounded-bottom text-center p-4">
-                                <h5 class="m-0">Teeth Whitening</h5>
-                            </div>
-                        </div>
+                        {% endfor %}
+<!--                        <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.6s">-->
+<!--                            <div class="rounded-top overflow-hidden">-->
+<!--                                <img class="img-fluid" src="img/service-4.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="position-relative bg-light rounded-bottom text-center p-4">-->
+<!--                                <h5 class="m-0">Teeth Whitening</h5>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
                 <div class="col-lg-5 service-item wow zoomIn" data-wow-delay="0.9s">
