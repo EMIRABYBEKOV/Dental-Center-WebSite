@@ -1,31 +1,44 @@
 from django.shortcuts import render, redirect
-from .models import Appointment, Service, Doctor
+from .models import Appointment, Service, Doctor, Review
 from django.http import HttpResponseRedirect
 
 
 def home(request):
-    service = Service.objects.all()
+    service_main = Service.objects.all()
     doctor = Doctor.objects.all()
     service2 = Service.objects.all()[0:2]
     service3 = Service.objects.all()[2:4]
-
+    review = Review.objects.all()
+    doctor2 = Doctor.objects.all()[0:2]
+    doctor3 = Doctor.objects.all()[2:5]
     contex = {
-        'service': service,
+        'service_main': service_main,
         'doctor': doctor,
         'service2': service2,
-        'service3': service3
+        'service3': service3,
+        'review': review,
+        'doctor2': doctor2,
+        'doctor3': doctor3,
     }
     return render(request, 'index.html', contex)
 
 def appointment(request):
     if request.method == 'POST':
-        # service = Service.objects.all()
+        if 'service' in request.POST:
+            service = request.POST['service']
+        else:
+            service = False
+        if 'doctor' in request.POST:
+            doctor = request.POST['doctor']
+        else:
+            doctor = False
+        # service = request.POST.get['service', False]
         # doctor = Doctor.objects.all()
         name = request.POST['name']
         mail = request.POST['mail']
         date = request.POST['date']
         time = request.POST['time']
-        add = Appointment(name=name, mail=mail, date=date, time=time)
+        add = Appointment(service=service, doctor=doctor, name=name, mail=mail, date=date, time=time)
         add.save()
         # service.save()
         # doctor.save()
@@ -33,6 +46,10 @@ def appointment(request):
     else:
         return HttpResponseRedirect('/')
 
+
+def about(request):
+    contex = {}
+    return render(request, 'about.html', contex)
 
 
 

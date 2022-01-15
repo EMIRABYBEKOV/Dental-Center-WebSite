@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor, Service, Appointment
+from .models import Doctor, Service, Appointment, Review
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
@@ -22,4 +22,10 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_filter = ('service', 'doctor', 'date', 'time', 'acceptance',)
     search_fields = ('service', 'doctor', 'date', 'time', 'acceptance',)
     ordering = ('service', 'doctor', 'date', 'time', 'acceptance',)
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_filter = ('name', 'comment',)
+    search_fields = ('name', 'comment',)
 

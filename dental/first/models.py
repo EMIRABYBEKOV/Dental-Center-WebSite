@@ -25,8 +25,14 @@ class Doctor(models.Model):
         return self.name
 
 class Appointment(models.Model):
-    service = models.ForeignKey(Service, verbose_name="service", on_delete=models.CASCADE, blank=True, null=True)
-    doctor = models.ForeignKey(Doctor, verbose_name="doctor", on_delete=models.CASCADE, blank=True, null=True)
+
+    CHOICES = []
+    for i in Service.objects.all():
+        CHOICES.append((f'{i.name}', i.name))
+
+
+    service = models.CharField(verbose_name="service",blank=True, null=True, max_length=255)
+    doctor = models.CharField(verbose_name="doctor",max_length=255,blank=True, null=True)
     name = models.CharField(verbose_name="name", max_length=255)
     mail = models.EmailField(verbose_name="mail")
     date = models.CharField(verbose_name="date", max_length=255)
@@ -40,3 +46,10 @@ class Appointment(models.Model):
         return self.date
 
 
+class Review(models.Model):
+    name = models.CharField(max_length=20, verbose_name='name')
+    comment = models.TextField(verbose_name='comment')
+    img = models.ImageField(verbose_name='img')
+
+    def __str__(self):
+        return self.name
