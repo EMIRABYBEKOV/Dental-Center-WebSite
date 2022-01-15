@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Antiparadontax - Suluguni & Timosha</title>
+    <title>Dental</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -61,7 +61,7 @@
             <div class="col-md-6 text-center text-lg-end">
                 <div class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5">
                     <div class="me-3 pe-3 border-end py-2">
-                        <p class="m-0"><i class="fa fa-envelope-open me-2"></i>itcbootcamp@gmail.com</p>
+                        <p class="m-0"><i class="fa fa-envelope-open me-2"></i>dental@gmail.com</p>
                     </div>
                     <div class="py-2">
                         <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+996 507 754 275</p>
@@ -75,30 +75,18 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Antiparadontax</h1>
+        <a href="" class="navbar-brand p-0">
+            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>Dental</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Домой</a>
-                <a href="about.html" class="nav-item nav-link">О нас</a>
-                <a href="service.html" class="nav-item nav-link">Услуги</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Страница</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="price.html" class="dropdown-item">Цены</a>
-                        <a href="team.html" class="dropdown-item">Наши Дантисты</a>
-                        <a href="testimonial.html" class="dropdown-item">Оставить отзыв</a>
-                        <a href="appointment.html" class="dropdown-item">Записаться на приём</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Контакты</a>
+                {% block url %}
+                {% endblock %}
             </div>
             <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
-            <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Записаться на приём</a>
         </div>
     </nav>
     {% block content %}
@@ -107,30 +95,21 @@
     <div class="container-fluid bg-dark text-light py-5 wow fadeInUp" data-wow-delay="0.3s" style="margin-top: -75px;">
         <div class="container pt-5">
             <div class="row g-5 pt-4">
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Быстрый переход</h3>
-                    <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Домой</a>
-                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>О нас</a>
-                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Наши услуги</a>
-                        <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Страница</a>
-                        <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Контакты</a>
-                    </div>
-                </div>
+
 <!--          -->
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Связаться с нами</h3>
-                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Бишкек,Раззакова/32</p>
-                    <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>itcbootcamp@gmail.com</p>
+                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Бишкек,Улица</p>
+                    <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>Dental@gmail.com</p>
                     <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>312(39-66-50)</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Наши соцсети:</h3>
                     <div class="d-flex">
                         <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="tg://resolve?domain="><i class="fab fa-telegram fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com/%D0%90%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F-%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-ITC-107375941532273/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="tel:+996507754275"><i class="fab fa-whatsapp fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.instagram.com/itcbootcamp/"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="tel:+996"><i class="fab fa-whatsapp fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.instagram.com"><i class="fab fa-instagram fw-normal"></i></a>
                     </div>
                 </div>
             </div>

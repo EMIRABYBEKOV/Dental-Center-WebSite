@@ -42,7 +42,7 @@ def appointment(request):
         add.save()
         # service.save()
         # doctor.save()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('home/')
     else:
         return HttpResponseRedirect('/')
 
@@ -50,6 +50,36 @@ def appointment(request):
 def about(request):
     contex = {}
     return render(request, 'about.html', contex)
+
+def service(request):
+    service2 = Service.objects.all()[0:2]
+    service3 = Service.objects.all()[2:4]
+    contex = {
+        'service2': service2,
+        'service3': service3,
+    }
+    return render(request, 'service.html', contex)
+
+def price(request):
+    service_main = Service.objects.all()
+    contex = {
+        'service_main': service_main,
+    }
+    return render(request, 'price.html', contex)
+
+def team(request):
+    doctor2 = Doctor.objects.all()[0:2]
+    doctor3 = Doctor.objects.all()[2:5]
+    contex = {
+        'doctor2': doctor2,
+        'doctor3': doctor3,
+    }
+    return render(request, 'team.html', contex)
+
+def contact(request):
+    contex = {}
+    return render(request, 'contact.html', contex)
+
 
 
 
