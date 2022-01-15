@@ -18,10 +18,10 @@ class DoctorAdmin(admin.ModelAdmin):
 
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ('service', 'doctor', 'date', 'time', 'acceptance',)
+    list_display = ('name', 'service', 'doctor', 'date', 'time', 'acceptance',)
     list_filter = ('service', 'doctor', 'date', 'time', 'acceptance',)
-    search_fields = ('service', 'doctor', 'date', 'time', 'acceptance',)
-    ordering = ('service', 'doctor', 'date', 'time', 'acceptance',)
+    search_fields = ('service','name', 'doctor', 'date', 'time', 'acceptance',)
+    ordering = ('-date',)
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):

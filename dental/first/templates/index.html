@@ -149,7 +149,7 @@
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <select class="form-select bg-light border-0" style="height: 55px;" name="service"  id="service" >
-                                        <option selected>Select A Service</option>
+                                        <option>Select A Service</option>
                                             {% for i in service_main %}
                                             <option >{{ i.name }}</option>
                                             {% endfor %}
@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <select class="form-select bg-light border-0" style="height: 55px;" name="doctor"  id="doctor">
-                                        <option selected>Select Doctor</option>
+                                        <option>Select Doctor</option>
                                         {% for i in doctor %}
                                         <option>{{ i.name }}</option>
                                         {% endfor %}

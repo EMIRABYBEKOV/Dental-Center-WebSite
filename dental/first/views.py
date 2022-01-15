@@ -39,7 +39,8 @@ def appointment(request):
         date = request.POST['date']
         time = request.POST['time']
         add = Appointment(service=service, doctor=doctor, name=name, mail=mail, date=date, time=time)
-        add.save()
+        if service is not None:
+            add.save()
         # service.save()
         # doctor.save()
         return HttpResponseRedirect('home/')

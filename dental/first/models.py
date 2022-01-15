@@ -26,13 +26,9 @@ class Doctor(models.Model):
 
 class Appointment(models.Model):
 
-    CHOICES = []
-    for i in Service.objects.all():
-        CHOICES.append((f'{i.name}', i.name))
 
-
-    service = models.CharField(verbose_name="service",blank=True, null=True, max_length=255)
-    doctor = models.CharField(verbose_name="doctor",max_length=255,blank=True, null=True)
+    service = models.CharField(verbose_name="service",max_length=255)
+    doctor = models.CharField(verbose_name="doctor",max_length=255)
     name = models.CharField(verbose_name="name", max_length=255)
     mail = models.EmailField(verbose_name="mail")
     date = models.CharField(verbose_name="date", max_length=255)
