@@ -35,17 +35,19 @@ def appointment(request):
         # service = request.POST.get['service', False]
         # doctor = Doctor.objects.all()
         name = request.POST['name']
-        mail = request.POST['mail']
+        phone = request.POST['phone']
         date = request.POST['date']
         time = request.POST['time']
-        add = Appointment(service=service, doctor=doctor, name=name, mail=mail, date=date, time=time)
-        if service is not None:
+        add = Appointment(service=service, doctor=doctor, name=name, phone=phone, date=date, time=time)
+        if service != 'Выбрать услугу' and doctor != 'Выбрать доктора':
             add.save()
         # service.save()
         # doctor.save()
-        return HttpResponseRedirect('home/')
+            return HttpResponseRedirect('home/')
+        else:
+            return HttpResponseRedirect('home/')
     else:
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('home/')
 
 
 def about(request):

@@ -30,7 +30,7 @@ class Appointment(models.Model):
     service = models.CharField(verbose_name="service",max_length=255)
     doctor = models.CharField(verbose_name="doctor",max_length=255)
     name = models.CharField(verbose_name="name", max_length=255)
-    mail = models.EmailField(verbose_name="mail")
+    phone = models.CharField(verbose_name="phone", max_length=20)
     date = models.CharField(verbose_name="date", max_length=255)
     time = models.CharField(verbose_name="time", max_length=255)
     acceptance = models.BooleanField(default=False)
