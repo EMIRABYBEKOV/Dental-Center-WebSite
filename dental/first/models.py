@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 class Service(models.Model):
     name = models.CharField(verbose_name="service_name", max_length=255)
     price = models.PositiveIntegerField(default=0)
@@ -15,6 +14,7 @@ class Service(models.Model):
     def __str__(self):
         return self.name
 
+
 class Doctor(models.Model):
     name = models.CharField(verbose_name="name", max_length=255)
     profession = models.CharField(verbose_name="profession", max_length=255)
@@ -24,8 +24,8 @@ class Doctor(models.Model):
     def __str__(self):
         return self.name
 
-class Appointment(models.Model):
 
+class Appointment(models.Model):
 
     service = models.CharField(verbose_name="service",max_length=255)
     doctor = models.CharField(verbose_name="doctor",max_length=255)

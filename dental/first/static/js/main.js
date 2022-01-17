@@ -81,15 +81,7 @@
 
 
     // Price carousel
-    $(".price-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        margin: 45,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
+    $(".price-carousel").owlCarousel({autoplay: true,smartSpeed: 1500,margin: 45,dots: false,loop: true,nav : true,navText : ['<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'
         ],
         responsive: {
